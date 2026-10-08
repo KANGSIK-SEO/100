@@ -1,0 +1,15 @@
+Q02. 확인: 1880년 이후에 그려진 작품 중 최신작 5점 (WHERE + ORDER BY DESC + LIMIT)
+
+sql> SELECT title, year_made, museum
+     FROM artwork
+     WHERE year_made >= 1880
+     ORDER BY year_made DESC
+     LIMIT 5;
+| title                                  | year_made | museum |
+|----------------------------------------|-----------|--------|
+| Water Lilies (Agapanthus)              | 1915      | cma    |
+| The Gulf Stream                        | 1899      | met    |
+| No te aha oe riri (Why Are You Angry?) | 1896      | aic    |
+| Ia Orana Maria (Hail Mary)             | 1891      | met    |
+| The Card Players                       | 1890      | met    |
+(5 rows)

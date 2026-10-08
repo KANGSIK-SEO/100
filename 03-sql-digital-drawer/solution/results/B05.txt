@@ -1,0 +1,5 @@
+B05. 확인: 이미 있는 이메일로 가입하면 UNIQUE 가 막는다
+
+sql> INSERT INTO member (id, email, nickname, joined_at)
+     VALUES (100, 'minji@example.com', '가짜민지', '2026-10-08');
+ERROR: UNIQUE constraint failed: member.email

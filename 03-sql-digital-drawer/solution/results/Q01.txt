@@ -1,0 +1,12 @@
+Q01. 확인: 네덜란드 화가만 골라 태어난 순서대로 본다 (WHERE + ORDER BY)
+
+sql> SELECT name, birth_year, death_year
+     FROM artist
+     WHERE nationality = 'Dutch'
+     ORDER BY birth_year;
+| name               | birth_year | death_year |
+|--------------------|------------|------------|
+| Rembrandt van Rijn | 1606       | 1669       |
+| Johannes Vermeer   | 1632       | 1675       |
+| Vincent van Gogh   | 1853       | 1890       |
+(3 rows)

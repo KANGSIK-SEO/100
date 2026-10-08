@@ -1,0 +1,4 @@
+B04. 확인: 리뷰가 달린 작품(9번)을 지우면 리뷰가 "주인 없는 리뷰"가 되므로 FK가 막는다
+
+sql> DELETE FROM artwork WHERE id = 9;
+ERROR: FOREIGN KEY constraint failed

@@ -1,0 +1,5 @@
+B06. 확인: 별점 7점은 CHECK (1~5) 가 막는다
+
+sql> INSERT INTO review (id, member_id, artwork_id, rating, comment, created_at)
+     VALUES (100, 12, 1, 7, '최고!', '2026-10-08');
+ERROR: CHECK constraint failed: rating BETWEEN 1 AND 5

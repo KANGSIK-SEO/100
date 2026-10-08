@@ -1,0 +1,12 @@
+B07. 지표 1 — 월별 리뷰 수 추이: 서비스가 점점 활발해지는지 본다
+
+sql> SELECT substr(created_at, 1, 7) AS month,  -- SQLite: 'YYYY-MM-DD' 에서 앞 7글자 = 'YYYY-MM'
+            COUNT(*)                 AS review_count
+     FROM review
+     GROUP BY month
+     ORDER BY month;
+| month   | review_count |
+|---------|--------------|
+| 2026-08 | 15           |
+| 2026-09 | 24           |
+(2 rows)

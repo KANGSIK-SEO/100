@@ -1,0 +1,19 @@
+B08. 지표 2 — 인기 작품 TOP 5: 리뷰가 많은 순, 같으면 평균 별점이 높은 순
+
+sql> SELECT w.title, a.name AS artist,
+            COUNT(r.id)             AS review_count,
+            ROUND(AVG(r.rating), 2) AS avg_rating
+     FROM artwork w
+     INNER JOIN artist a ON w.artist_id  = a.id
+     INNER JOIN review r ON r.artwork_id = w.id
+     GROUP BY w.id, w.title, a.name
+     ORDER BY review_count DESC, avg_rating DESC
+     LIMIT 5;
+| title                                                            | artist           | review_count | avg_rating |
+|------------------------------------------------------------------|------------------|--------------|------------|
+| Study of a Young Woman                                           | Johannes Vermeer | 6            | 3.5        |
+| Irises                                                           | Vincent van Gogh | 3            | 2.33       |
+| A Woman Seated beside a Vase of Flowers (Madame Paul Valpinçon?) | Edgar Degas      | 2            | 4.5        |
+| The Red Kerchief                                                 | Claude Monet     | 2            | 3.5        |
+| Self-Portrait with a Straw Hat (obverse: The Potato Peeler)      | Vincent van Gogh | 2            | 3.5        |
+(5 rows)

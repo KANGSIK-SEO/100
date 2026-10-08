@@ -1,0 +1,16 @@
+B01. 확인: JOIN 방식 — 두 표를 옆으로 붙인 뒤 조건으로 거른다. 작품 제목도 같이 볼 수 있다.
+
+sql> SELECT r.id, w.title, r.rating
+     FROM review r
+     INNER JOIN artwork w ON r.artwork_id = w.id
+     INNER JOIN artist  a ON w.artist_id  = a.id
+     WHERE a.name = 'Claude Monet'
+     ORDER BY r.id;
+| id | title                                            | rating |
+|----|--------------------------------------------------|--------|
+| 3  | The Red Kerchief                                 | 3      |
+| 11 | Water Lilies (Agapanthus)                        | 4      |
+| 23 | The Beach at Sainte-Adresse                      | 5      |
+| 25 | The Red Kerchief                                 | 4      |
+| 38 | Arrival of the Normandy Train, Gare Saint-Lazare | 5      |
+(5 rows)

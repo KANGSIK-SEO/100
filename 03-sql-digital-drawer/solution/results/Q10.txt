@@ -1,0 +1,20 @@
+Q10. 확인: 화가별 평균 별점 랭킹 — 리뷰 3개 이상인 화가만 (AVG + COUNT + GROUP BY + HAVING)
+
+sql> SELECT a.name,
+            COUNT(r.id)            AS review_count,
+            ROUND(AVG(r.rating), 2) AS avg_rating
+     FROM artist a
+     INNER JOIN artwork w ON w.artist_id  = a.id
+     INNER JOIN review  r ON r.artwork_id = w.id
+     GROUP BY a.id, a.name
+     HAVING COUNT(r.id) >= 3
+     ORDER BY avg_rating DESC, review_count DESC;
+| name             | review_count | avg_rating |
+|------------------|--------------|------------|
+| Claude Monet     | 5            | 4.2        |
+| Johannes Vermeer | 8            | 3.38       |
+| Vincent van Gogh | 6            | 3.17       |
+| Winslow Homer    | 3            | 3.0        |
+| Gustave Courbet  | 3            | 3.0        |
+| Edgar Degas      | 5            | 2.8        |
+(6 rows)

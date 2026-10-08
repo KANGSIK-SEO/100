@@ -1,0 +1,9 @@
+Q12. 확인: 리뷰를 한 번도 쓰지 않은 회원 찾기 (NOT IN 서브쿼리)
+
+sql> SELECT id, nickname, email
+     FROM member
+     WHERE id NOT IN (SELECT member_id FROM review);
+| id | nickname | email            |
+|----|----------|------------------|
+| 12 | 나리     | nari@example.com |
+(1 rows)

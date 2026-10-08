@@ -1,0 +1,5 @@
+B03. 확인: 없는 화가(999번)의 작품을 넣으면 FK가 막는다 → FOREIGN KEY constraint failed
+
+sql> INSERT INTO artwork (id, artist_id, title, year_made, medium, museum, image_url)
+     VALUES (100, 999, 'Fake Painting', 2026, 'Oil on canvas', 'met', 'https://example.com/fake.jpg');
+ERROR: FOREIGN KEY constraint failed

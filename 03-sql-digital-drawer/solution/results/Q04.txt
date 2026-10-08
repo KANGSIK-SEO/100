@@ -1,0 +1,15 @@
+Q04. 확인: 별점 5점 리뷰 중 가장 최근 것 5개 (WHERE + ORDER BY + LIMIT)
+
+sql> SELECT id, artwork_id, rating, comment, created_at
+     FROM review
+     WHERE rating = 5
+     ORDER BY created_at DESC
+     LIMIT 5;
+| id | artwork_id | rating | comment                | created_at |
+|----|------------|--------|------------------------|------------|
+| 38 | 31         | 5      | 직접 보고 싶어요       | 2026-09-22 |
+| 37 | 5          | 5      | 직접 보고 싶어요       | 2026-09-21 |
+| 26 | 5          | 5      | 인생 작품이에요        | 2026-09-10 |
+| 24 | 17         | 5      | 색감이 정말 아름다워요 | 2026-09-08 |
+| 23 | 32         | 5      | 인생 작품이에요        | 2026-09-07 |
+(5 rows)

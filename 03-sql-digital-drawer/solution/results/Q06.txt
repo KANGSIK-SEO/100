@@ -1,0 +1,22 @@
+Q06. 확인: 리뷰 한 줄에 "누가 / 어떤 작품에 / 몇 점" 을 사람이 읽을 수 있게 (INNER JOIN 3개 표)
+
+sql> SELECT m.nickname, w.title, a.name AS artist, r.rating, r.created_at
+     FROM review r
+     INNER JOIN member  m ON r.member_id  = m.id
+     INNER JOIN artwork w ON r.artwork_id = w.id
+     INNER JOIN artist  a ON w.artist_id  = a.id
+     ORDER BY r.created_at DESC
+     LIMIT 10;
+| nickname | title                                                       | artist                | rating | created_at |
+|----------|-------------------------------------------------------------|-----------------------|--------|------------|
+| 준호     | Two Sisters (On the Terrace)                                | Pierre-Auguste Renoir | 4      | 2026-09-24 |
+| 민지     | Self-Portrait with a Straw Hat (obverse: The Potato Peeler) | Vincent van Gogh      | 4      | 2026-09-23 |
+| 예린     | Arrival of the Normandy Train, Gare Saint-Lazare            | Claude Monet          | 5      | 2026-09-22 |
+| 수아     | Study of a Young Woman                                      | Johannes Vermeer      | 5      | 2026-09-21 |
+| 수아     | Irises                                                      | Vincent van Gogh      | 3      | 2026-09-20 |
+| 하은     | The Herring Net                                             | Winslow Homer         | 1      | 2026-09-19 |
+| 예린     | Study of a Young Woman                                      | Johannes Vermeer      | 4      | 2026-09-18 |
+| 서준     | Study of a Young Woman                                      | Johannes Vermeer      | 2      | 2026-09-17 |
+| 수아     | The Card Players                                            | Paul Cezanne          | 1      | 2026-09-16 |
+| 현우     | Irises                                                      | Vincent van Gogh      | 3      | 2026-09-15 |
+(10 rows)

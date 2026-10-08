@@ -1,0 +1,12 @@
+Q03. 확인: 제목에 'Portrait'(초상화)가 들어간 작품 검색 (LIKE 패턴 검색)
+
+sql> SELECT id, title, year_made
+     FROM artwork
+     WHERE title LIKE '%Portrait%'
+     ORDER BY year_made;
+| id | title                                                            | year_made |
+|----|------------------------------------------------------------------|-----------|
+| 4  | Portrait of a Man, probably a Member of the Van Beresteyn Family | 1632      |
+| 2  | Self-Portrait                                                    | 1660      |
+| 42 | Self-Portrait with a Straw Hat (obverse: The Potato Peeler)      | 1887      |
+(3 rows)

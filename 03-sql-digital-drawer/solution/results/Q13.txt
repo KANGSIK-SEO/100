@@ -1,0 +1,18 @@
+Q13. 확인: 회원이 리뷰 별점을 고친다 — 7번 리뷰를 2점 → 4점으로 (UPDATE, 수정 전/후 비교)
+
+sql> SELECT id, rating, comment FROM review WHERE id = 7;   -- 수정 전
+| id | rating | comment            |
+|----|--------|--------------------|
+| 7  | 2      | 제 취향은 아니에요 |
+(1 rows)
+
+sql> UPDATE review
+     SET rating = 4, comment = '다시 보니 좋아요'
+     WHERE id = 7;
+(OK, 1 row(s) affected)
+
+sql> SELECT id, rating, comment FROM review WHERE id = 7;   -- 수정 후
+| id | rating | comment          |
+|----|--------|------------------|
+| 7  | 4      | 다시 보니 좋아요 |
+(1 rows)

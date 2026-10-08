@@ -1,0 +1,17 @@
+B02. 확인: 서브쿼리 방식 — 안쪽 쿼리로 "모네 작품 번호 목록"을 먼저 구하고, 바깥에서 그 번호의 리뷰만 고른다.
+
+sql> SELECT r.id, r.artwork_id, r.rating
+     FROM review r
+     WHERE r.artwork_id IN (
+         SELECT id FROM artwork
+         WHERE artist_id = (SELECT id FROM artist WHERE name = 'Claude Monet')
+     )
+     ORDER BY r.id;
+| id | artwork_id | rating |
+|----|------------|--------|
+| 3  | 29         | 3      |
+| 11 | 30         | 4      |
+| 23 | 32         | 5      |
+| 25 | 29         | 4      |
+| 38 | 31         | 5      |
+(5 rows)

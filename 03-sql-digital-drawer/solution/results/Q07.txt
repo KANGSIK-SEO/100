@@ -1,0 +1,40 @@
+Q07. 확인: 미술관이 'met'(메트로폴리탄)인 작품에 달린 리뷰만 본다 (INNER JOIN + WHERE)
+
+sql> SELECT w.museum, w.title, r.rating, r.comment
+     FROM artwork w
+     INNER JOIN review r ON r.artwork_id = w.id
+     WHERE w.museum = 'met'
+     ORDER BY r.rating DESC, w.title;
+| museum | title                                                            | rating | comment                |
+|--------|------------------------------------------------------------------|--------|------------------------|
+| met    | A Woman Seated beside a Vase of Flowers (Madame Paul Valpinçon?) | 5      | 색감이 정말 아름다워요 |
+| met    | Ia Orana Maria (Hail Mary)                                       | 5      | 직접 보고 싶어요       |
+| met    | Madame Cézanne (Hortense Fiquet, 1850–1922) in a Red Dress       | 5      | 인생 작품이에요        |
+| met    | Mademoiselle V. . . in the Costume of an Espada                  | 5      | 직접 보고 싶어요       |
+| met    | Study of a Young Woman                                           | 5      | 인생 작품이에요        |
+| met    | Study of a Young Woman                                           | 5      | 직접 보고 싶어요       |
+| met    | Wheat Field with Cypresses                                       | 5      | 직접 보고 싶어요       |
+| met    | A Maid Asleep                                                    | 4      | 분위기가 좋아요        |
+| met    | Portrait of a Man, probably a Member of the Van Beresteyn Family | 4      | 분위기가 좋아요        |
+| met    | Self-Portrait with a Straw Hat (obverse: The Potato Peeler)      | 4      | 분위기가 좋아요        |
+| met    | Study of a Young Woman                                           | 4      | 오래 보게 되네요       |
+| met    | The Spanish Singer                                               | 4      | 분위기가 좋아요        |
+| met    | Woman with a Parrot                                              | 4      | 오래 보게 되네요       |
+| met    | Irises                                                           | 3      | 무난해요               |
+| met    | Irises                                                           | 3      | 설명을 더 알고 싶어요  |
+| met    | Self-Portrait                                                    | 3      | 무난해요               |
+| met    | Self-Portrait with a Straw Hat (obverse: The Potato Peeler)      | 3      | 설명을 더 알고 싶어요  |
+| met    | Study of a Young Woman                                           | 3      | 설명을 더 알고 싶어요  |
+| met    | The Dance Class                                                  | 3      | 무난해요               |
+| met    | The Old Italian Woman                                            | 3      | 무난해요               |
+| met    | The Veteran in a New Field                                       | 3      | 설명을 더 알고 싶어요  |
+| met    | Young Ladies of the Village                                      | 3      | 설명을 더 알고 싶어요  |
+| met    | A Maid Asleep                                                    | 2      | 제 취향은 아니에요     |
+| met    | A Woman Seated beside a Vase of Flowers (Madame Paul Valpinçon?) | 2      | 제 취향은 아니에요     |
+| met    | Study of a Young Woman                                           | 2      | 제 취향은 아니에요     |
+| met    | Study of a Young Woman                                           | 2      | 제 취향은 아니에요     |
+| met    | Woman with a Parrot                                              | 2      | 제 취향은 아니에요     |
+| met    | Irises                                                           | 1      | 잘 모르겠어요          |
+| met    | The Card Players                                                 | 1      | 잘 모르겠어요          |
+| met    | The Collector of Prints                                          | 1      | 잘 모르겠어요          |
+(30 rows)

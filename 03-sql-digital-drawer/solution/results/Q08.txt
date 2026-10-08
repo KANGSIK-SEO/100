@@ -1,0 +1,31 @@
+Q08. 확인: 리뷰가 하나도 없는 작품 찾기 (LEFT JOIN: 짝이 없으면 오른쪽이 NULL)
+
+sql> SELECT w.id, w.title, r.id AS review_id
+     FROM artwork w
+     LEFT JOIN review r ON r.artwork_id = w.id
+     WHERE r.id IS NULL
+     ORDER BY w.id;
+| id | title                                                                       | review_id |
+|----|-----------------------------------------------------------------------------|-----------|
+| 1  | Aristotle with a Bust of Homer                                              | NULL      |
+| 3  | Man in a Turban                                                             | NULL      |
+| 6  | Young Woman with a Water Pitcher                                            | NULL      |
+| 7  | Allegory of the Catholic Faith                                              | NULL      |
+| 11 | Panoramic View of the Alps, Les Dents du Midi                               | NULL      |
+| 12 | Mère Grégoire                                                               | NULL      |
+| 14 | Boating                                                                     | NULL      |
+| 15 | Young Lady in 1866                                                          | NULL      |
+| 21 | The Gulf Stream                                                             | NULL      |
+| 24 | Croquet Scene                                                               | NULL      |
+| 27 | Still Life with Apples and a Pot of Primroses                               | NULL      |
+| 28 | Antoine Dominique Sauveur Aubert (born 1817), the Artist's Uncle, as a Monk | NULL      |
+| 33 | Romaine Lacaux                                                              | NULL      |
+| 35 | Acrobats at the Cirque Fernando (Francisca and Angelina Wartenberg)         | NULL      |
+| 38 | Arlésiennes (Mistral)                                                       | NULL      |
+| 40 | Woman in Front of a Still Life by Cezanne                                   | NULL      |
+| 44 | The Large Plane Trees (Road Menders at Saint-Rémy)                          | NULL      |
+| 45 | Circus Sideshow (Parade de cirque)                                          | NULL      |
+| 46 | Study for "A Sunday on La Grande Jatte"                                     | NULL      |
+| 47 | Oil Sketch for "A Sunday on La Grande Jatte — 1884"                         | NULL      |
+| 48 | The Forest at Pontaubert                                                    | NULL      |
+(21 rows)

@@ -1,0 +1,16 @@
+B09. 지표 3 — 미술관별 리뷰 만족도: 어느 미술관 소장품이 반응이 좋은지 본다
+
+sql> SELECT w.museum,
+            COUNT(DISTINCT w.id)    AS reviewed_artworks,
+            COUNT(r.id)             AS review_count,
+            ROUND(AVG(r.rating), 2) AS avg_rating
+     FROM artwork w
+     INNER JOIN review r ON r.artwork_id = w.id
+     GROUP BY w.museum
+     ORDER BY avg_rating DESC;
+| museum | reviewed_artworks | review_count | avg_rating |
+|--------|-------------------|--------------|------------|
+| aic    | 6                 | 7            | 3.71       |
+| cma    | 2                 | 3            | 3.67       |
+| met    | 19                | 29           | 3.41       |
+(3 rows)

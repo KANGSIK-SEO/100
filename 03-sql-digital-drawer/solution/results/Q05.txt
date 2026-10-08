@@ -1,0 +1,14 @@
+Q05. 확인: 작품 제목 옆에 화가 이름을 붙여 본다 (INNER JOIN, artwork.artist_id = artist.id)
+
+sql> SELECT a.name AS artist, w.title, w.year_made
+     FROM artwork w
+     INNER JOIN artist a ON w.artist_id = a.id
+     WHERE a.name = 'Vincent van Gogh'
+     ORDER BY w.year_made;
+| artist           | title                                                       | year_made |
+|------------------|-------------------------------------------------------------|-----------|
+| Vincent van Gogh | Self-Portrait with a Straw Hat (obverse: The Potato Peeler) | 1887      |
+| Vincent van Gogh | Wheat Field with Cypresses                                  | 1889      |
+| Vincent van Gogh | The Large Plane Trees (Road Menders at Saint-Rémy)          | 1889      |
+| Vincent van Gogh | Irises                                                      | 1890      |
+(4 rows)

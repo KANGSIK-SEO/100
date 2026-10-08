@@ -1,0 +1,17 @@
+Q14. 확인: 14번 리뷰를 삭제한다 (DELETE, 삭제 전/후 개수 비교)
+
+sql> SELECT COUNT(*) AS review_count_before FROM review;
+| review_count_before |
+|---------------------|
+| 40                  |
+(1 rows)
+
+sql> DELETE FROM review
+     WHERE id = 14;
+(OK, 1 row(s) affected)
+
+sql> SELECT COUNT(*) AS review_count_after FROM review;
+| review_count_after |
+|--------------------|
+| 39                 |
+(1 rows)

@@ -1,0 +1,16 @@
+Q15. 확인: review.artwork_id 에 인덱스를 만들고, 검색 방식이 바뀌는지 본다
+
+sql> EXPLAIN QUERY PLAN SELECT * FROM review WHERE artwork_id = 9;   -- 만들기 전: SCAN (전체 훑기)
+| id | parent | notused | detail      |
+|----|--------|---------|-------------|
+| 2  | 0      | 0       | SCAN review |
+(1 rows)
+
+sql> CREATE INDEX idx_review_artwork_id ON review (artwork_id);
+(OK)
+
+sql> EXPLAIN QUERY PLAN SELECT * FROM review WHERE artwork_id = 9;   -- 만든 후: SEARCH ... USING INDEX (바로 찾기)
+| id | parent | notused | detail                                                         |
+|----|--------|---------|----------------------------------------------------------------|
+| 3  | 0      | 0       | SEARCH review USING INDEX idx_review_artwork_id (artwork_id=?) |
+(1 rows)

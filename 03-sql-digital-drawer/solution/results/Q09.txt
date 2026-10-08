@@ -1,0 +1,15 @@
+Q09. 확인: 국적별 화가 수와 작품 수 (COUNT + GROUP BY)
+
+sql> SELECT a.nationality,
+            COUNT(DISTINCT a.id) AS artist_count,
+            COUNT(w.id)          AS artwork_count
+     FROM artist a
+     INNER JOIN artwork w ON w.artist_id = a.id
+     GROUP BY a.nationality
+     ORDER BY artwork_count DESC;
+| nationality | artist_count | artwork_count |
+|-------------|--------------|---------------|
+| French      | 8            | 32            |
+| Dutch       | 3            | 12            |
+| American    | 1            | 4             |
+(3 rows)

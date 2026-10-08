@@ -1,0 +1,23 @@
+Q11. 확인: 회원별 리뷰 수와 준 별점 합계 — 활동 많은 회원 순 (COUNT + SUM + GROUP BY)
+
+sql> SELECT m.nickname,
+            COUNT(r.id)   AS review_count,
+            SUM(r.rating) AS rating_sum
+     FROM member m
+     INNER JOIN review r ON r.member_id = m.id
+     GROUP BY m.id, m.nickname
+     ORDER BY review_count DESC, rating_sum DESC;
+| nickname | review_count | rating_sum |
+|----------|--------------|------------|
+| 준호     | 6            | 23         |
+| 수아     | 6            | 21         |
+| 도윤     | 5            | 20         |
+| 예린     | 5            | 20         |
+| 민지     | 4            | 11         |
+| 지우     | 3            | 11         |
+| 서준     | 3            | 9          |
+| 채원     | 3            | 8          |
+| 현우     | 2            | 8          |
+| 하은     | 2            | 4          |
+| 태양     | 1            | 1          |
+(11 rows)
